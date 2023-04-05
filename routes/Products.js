@@ -9,5 +9,7 @@ router.get('/getAll', ProductController.getAll)
 router.get('/getById/:id', ProductController.getById)
 router.get('/getByName/:name', ProductController.getByName)
 router.get('/getByPrice/:price', ProductController.getByPrice)
+router.delete("/deleteById/:id", ProductController.deleteById)
+
 
 module.exports = router;

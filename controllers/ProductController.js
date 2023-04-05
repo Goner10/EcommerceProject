@@ -81,7 +81,25 @@ const ProductController = {
             console.error(error)
             res.status(500).send(error)
         }
-    }
+    },
+
+    async deleteById(req, res)  {
+        try {
+          const productId = req.params.id;
+          const product = await Product.findByPk(productId);
+    
+          if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+          }
+    
+          await Product.destroy({ where: { id: productId } });
+    
+          res.json({ message: 'Product deleted successfully', product });
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: 'Internal server error' });
+        }
+      }
 
 }
  
