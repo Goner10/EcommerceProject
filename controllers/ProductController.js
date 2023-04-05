@@ -61,7 +61,27 @@ const ProductController = {
         }
     },
 
-
+    async getByPrice(req, res) {
+        try {
+            const product = await Product.findOne({
+                where: {
+                    price: {
+                        [Op.eq]: req.params.price  // Op.eq para que busque en los registros de products de la columna precio
+                    }
+                },
+                include: [{model: Category, attributes: ['name']}]
+            })
+            console.log(req.params.price) 
+            if (product) {
+                res.send(product)
+            } else {
+                res.status(404).send({message: `No product with price: ${req.params.price}`})
+            }
+        } catch (error) {
+            console.error(error)
+            res.status(500).send(error)
+        }
+    }
 
 }
  

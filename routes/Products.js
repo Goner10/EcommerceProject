@@ -8,6 +8,6 @@ router.post('/createproduct', ProductController.createProduct);
 router.get('/getAll', ProductController.getAll)
 router.get('/getById/:id', ProductController.getById)
 router.get('/getByName/:name', ProductController.getByName)
-
+router.get('/getByPrice/:price', ProductController.getByPrice)
 
 module.exports = router;
