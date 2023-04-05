@@ -25,7 +25,8 @@ const ProductController = {
 
     async getById(req, res) {
         try {
-            const product = await Product.findByPk(req.params.id, {
+            const product = await Product.findByPk(req.params.id, { //método findPK de sequelize para que busque el   producto
+
                 include: [{model: Category, attributes: ['name']}]
             })
             if (product) {
@@ -38,6 +39,29 @@ const ProductController = {
             res.status(500).send(error)
         }
     },
+
+    async getByName(req, res) {
+        try {
+            const product = await Product.findOne({
+                where: {
+                    name: {
+                        [Op.like]: `%${req.params.name}%` // Op.like de sequelize para cogerlos a partir del name
+                    }
+                },
+                include: [{model: Category, attributes: ['name']}]
+            })
+            if (product) {
+                res.send(product)
+            } else {
+                res.status(404).send({message: `No product with name: ${req.params.name}`})
+            }
+        } catch (error) {
+            console.error(error)
+            res.status(500).send(error)
+        }
+    },
+
+
 
 }
  
