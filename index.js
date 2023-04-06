@@ -10,7 +10,7 @@ app.use('/products',require('./routes/Products'))
 
 app.use('/clients',require('./routes/Clients'))
 
-
+app.use('/categories',require('./routes/Categories'))
 
 
 app.listen(PORT, ()=> console.log(`Servidor levantado en el puerto ${PORT}`));

@@ -14,7 +14,7 @@ const ProductController = {
     async getAll(req, res) {
         try {
             const products = await Product.findAll({
-                include:[{model: Category, attributes: ['name']}]
+                 //include:[{model: Category, attributes: ['name']}]
             })
             res.send(products)
         } catch (error) {
@@ -27,7 +27,7 @@ const ProductController = {
         try {
             const product = await Product.findByPk(req.params.id, { //método findPK de sequelize para que busque el   producto
 
-                include: [{model: Category, attributes: ['name']}]
+                // include: [{model: Category, attributes: ['name']}]   
             })
             if (product) {
                 res.send(product)
@@ -99,8 +99,38 @@ const ProductController = {
           console.error(error);
           res.status(500).json({ message: 'Internal server error' });
         }
-      }
-
+      },
+      async getProductsOrder(req, res) {
+        try {
+            const products = await Product.findAll({
+                 // include:[{model: Category, attributes: ['name']}],
+                order: [['price', 'DESC']]
+            })
+            res.send(products)
+        } catch (error) {
+            console.error(error)
+            res.status(500).send(error)
+        }
+    },
+    async updateById(req, res) {
+        try {
+            const productId = req.params.id;
+            const { name, price, CategoryId } = req.body;
+            const product = await Product.findByPk(productId);
+    
+            if (!product) {
+                return res.status(404).json({ message: 'Product not found' });
+            }
+    
+            await product.update({ name, price, CategoryId });
+    
+            res.json({ message: 'Product updated successfully', product });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Internal server error' });
+        }
+    }
+    
 }
  
 
