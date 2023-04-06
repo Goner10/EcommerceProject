@@ -1,4 +1,4 @@
-const { Product } = require('../models/index')
+const { Product, Category } = require('../models/index')
 
 const ProductController = {
     async createProduct(req, res) {
@@ -14,7 +14,7 @@ const ProductController = {
     async getAll(req, res) {
         try {
             const products = await Product.findAll({
-                 //include:[{model: Category, attributes: ['name']}]
+                 include:[{model: Category, attributes: ['name']}]
             })
             res.send(products)
         } catch (error) {
@@ -27,7 +27,7 @@ const ProductController = {
         try {
             const product = await Product.findByPk(req.params.id, { //método findPK de sequelize para que busque el   producto
 
-                // include: [{model: Category, attributes: ['name']}]   
+                 include: [{model: Category, attributes: ['name']}]   
             })
             if (product) {
                 res.send(product)
@@ -103,7 +103,7 @@ const ProductController = {
       async getProductsOrder(req, res) {
         try {
             const products = await Product.findAll({
-                 // include:[{model: Category, attributes: ['name']}],
+                  include:[{model: Category, attributes: ['name']}],
                 order: [['price', 'DESC']]
             })
             res.send(products)
