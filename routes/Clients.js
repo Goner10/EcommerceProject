@@ -4,9 +4,9 @@ const router = express.Router();
 
 
 
-router.post('/createClient',ClientController.createClient)
-router.post('/login',ClientController.login)
-
+router.post('/createClient', ClientController.createClient)
+router.post('/login', ClientController.login)
+router.delete('/logout', ClientController.logout)
 
 
 

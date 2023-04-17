@@ -4,7 +4,11 @@
     "password": "tu Contraseña",
     "database": "database_development",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "jwt_secret": "",
+    "auth": {
+      "user": "your email",
+      "pass": "your password"
   },
   "test": {
     "username": "root",
@@ -20,4 +24,5 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
+}
 }

@@ -1,5 +1,5 @@
 
-const { Client,  } = require('../models/index')
+const { Client, Token, Sequelize } = require('../models/index')
 
 const bcrypt = require('bcryptjs')
 
@@ -21,32 +21,48 @@ const ClientController = {
         }
 
     },
-    async login(req,res){
+    async login(req, res) {
         try {
             const client = await Client.findOne({
-              where: {
-                email: req.body.email,
-              },
+                where: {
+                    email: req.body.email,
+                },
             });
             if (!client) {
-              return res
-                .status(400)
-                .send({ message: "Usuario o contraseña incorrectos" });
+                return res
+                    .status(400)
+                    .send({ message: "Usuario o contraseña incorrectos" });
             }
-            const isMatch = bcrypt.compareSync(req.body.password, client.password); 
+            const isMatch = bcrypt.compareSync(req.body.password, client.password);
             if (!isMatch) {
-              return res
-                .status(400)
-                .send({ message: "Usuario o contraseña incorrectos" });
+                return res
+                    .status(400)
+                    .send({ message: "Usuario o contraseña incorrectos" });
             }
             const token = jwt.sign({ id: client.id }, jwt_secret);
-            Token.create({ token, ClientId: client.id });
-            res.send({ token, message: "Bienvenid@ " + client.name, client });
-          } catch (error) {
+            await Token.create({ token, ClientId: client.id });
+            res.send({ token, message: `Bienvenido ${client.full_name}`, client });
+        } catch (error) {
             console.log(error);
             res.status(500).send(error);
-          }
-        },
+        }
+    },
+    async logout(req, res) {
+        try {
+            await Token.destroy({
+                where: {
+                    [Op.and]: [
+                        { UserId: req.user.id },
+                        { token: req.headers.authorization }
+                    ]
+                }
+            })
+            res.send({ message: 'Logged out successfully' })
+        } catch (error) {
+            console.error(error)
+            res.status(500).send({ message: 'There was a problem while logging out' })
+        }
+    },
 }
 
 module.exports = ClientController;
