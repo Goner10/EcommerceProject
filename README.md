@@ -4,13 +4,13 @@ Descripción📋
 
 El proyecto consiste en una base de datos para una tienda on-line ficticia utilizando Node.js, Express, MySQL y Sequelize. Todo ello usando una APIs REST.
 
-Tabla de contenidos
 
-Objetivos
-Diagrama y Arquitectura
-Tecnología
-Autor
-Objetivos 🎯
+
+
+Diagrama de tablas
+ 
+![](https://github.com/Goner10/EcommerceProject/blob/main/pdf%20de%20la%20ecommerce.pdf)
+
 
 
 
