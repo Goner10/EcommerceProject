@@ -1,5 +1,5 @@
 
-const { Client, Token, Sequelize } = require('../models/index')
+const { Client, Token, Sequelize, Op } = require('../models/index')
 
 const bcrypt = require('bcryptjs')
 
@@ -52,7 +52,7 @@ const ClientController = {
             await Token.destroy({
                 where: {
                     [Op.and]: [
-                        { UserId: req.user.id },
+                        { ClientId: req.client.id },
                         { token: req.headers.authorization }
                     ]
                 }
