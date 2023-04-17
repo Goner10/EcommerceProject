@@ -12,5 +12,6 @@ app.use('/clients',require('./routes/Clients'))
 
 app.use('/categories',require('./routes/Categories'))
 
+app.use('/sales', require('./routes/Sales'))
 
 app.listen(PORT, ()=> console.log(`Servidor levantado en el puerto ${PORT}`));

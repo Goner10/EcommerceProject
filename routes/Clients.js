@@ -1,10 +1,11 @@
 const express = require('express');
+const ClientController = require('../controllers/ClientController')
 const router = express.Router();
 
-const ClientController = require('../controllers/ClientController')
 
-// router.post('/',ClientController.create)
 
+router.post('/createClient',ClientController.createClient)
+router.post('/login',ClientController.login)
 
 
 
