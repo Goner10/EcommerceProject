@@ -9,7 +9,7 @@ El proyecto consiste en una base de datos para una tienda on-line ficticia utili
 
 Diagrama de tablas
  
-![](https://github.com/Goner10/EcommerceProject/blob/main/pdf%20de%20la%20ecommerce.pdf)
+![]()
 
 
 
