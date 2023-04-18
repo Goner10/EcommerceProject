@@ -1,30 +1,55 @@
-Proyecto de backend para un e-commerce 🖥️
+ECOMMERCE API 🖥️
+---
+
+
 
 Descripción📋
-
-El proyecto consiste en una base de datos para una tienda on-line ficticia utilizando Node.js, Express, MySQL y Sequelize. Todo ello usando una APIs REST.
-
+---
 
 
 
-Diagrama de tablas
- 
+El proyecto consiste en una base de datos para una tienda de Ecommerce utilizando Node.js, Express, MySQL y Sequelize, 
+usando una APIs REST.
+
+
+
+
+Diagrama de tablas 📈
+--- 
+
 ![](https://github.com/Goner10/EcommerceProject/blob/main/tablas.png)
 
 
+Instalación ⚙️
+---
+
+1-Clonar el repositorio 
+
+2-Instalar dependencias 
+
+3-
 
 
 
 
-Construido con 🛠️
+Construido con 🛠️ 
+---
 
-Sequelize
-Mysql
-Express
-Postman
-Visual Studio Code
+-Node.js
+
+-Sequelize
+
+-Mysql
+
+-Express
+
+-JWT
+
+-Bcrypt
+
+-Visual Studio Code
 
 
 Autor ✒️
-
+---
 Gonzalo Martí 
