@@ -23,11 +23,33 @@ Diagrama de tablas 📈
 Instalación ⚙️
 ---
 
-1-Clonar el repositorio 
+**1-Clonar el repositorio** 
 
-2-Instalar dependencias 
+https://github.com/Goner10/EcommerceProject.git
 
-3-
+
+**2-Instalar dependencias** 
+
+
+npm install
+
+
+**3-Migraciones**
+
+
+sequelize db:migrate
+
+
+**4-Seeders**
+
+
+sequelize db:seed:all
+
+
+**5-Iniciar el servidor**
+
+
+npm start
 
 
 
