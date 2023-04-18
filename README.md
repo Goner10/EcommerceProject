@@ -8,8 +8,8 @@ Descripción📋
 
 
 
-El proyecto consiste en una base de datos para una tienda de Ecommerce utilizando Node.js, Express, MySQL y Sequelize, 
-usando una APIs REST.
+El proyecto consiste en una base de datos para una tienda de Ecommerce. Se ha utilizado Node.js, Express, MySQL y Sequelize.
+En el proyecto se recrean los distintos aspectos fundamentales a tener en cuenta para crear una tienda de esta índole, como el registro de un usuario, la creacion de productos, las categorias a las que pertenecen esos productos... 
 
 
 
