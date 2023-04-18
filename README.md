@@ -76,7 +76,7 @@ Construido con 🛠️
 Distribución de las carpetas en VSC
 ---
 
-![]()
+![](https://github.com/Goner10/EcommerceProject/blob/main/carpetasVSC.png)
 
 
 
