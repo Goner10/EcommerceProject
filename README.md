@@ -72,6 +72,14 @@ Construido con 🛠️
 -Visual Studio Code
 
 
+
+Distribución de las carpetas en VSC
+---
+
+![]()
+
+
+
 Autor ✒️
 ---
 Gonzalo Martí 
