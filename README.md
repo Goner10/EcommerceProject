@@ -49,7 +49,7 @@ sequelize db:seed:all
 **5-Iniciar el servidor**
 
 
-npm start
+npm run dev
 
 
 
