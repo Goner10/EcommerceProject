@@ -32,6 +32,13 @@ module.exports = {
             updatedAt:new Date(),
             createdAt:new Date()
             },
+            {
+              name:'shoes',
+              price:50000.5,
+              CategoryId:4,
+              updatedAt:new Date(),
+              createdAt:new Date()
+              }
     ])
 
   },

@@ -1,15 +1,17 @@
 
-const { Client, Token, Sequelize, Op } = require('../models/index')
+const { Client, Token, Sequelize } = require('../models/index')
 
 const bcrypt = require('bcryptjs')
 
 const jwt = require('jsonwebtoken');
 const { jwt_secret } = require('../config/config.json')['development']
+const{ Op } = Sequelize
 
 
 const ClientController = {
     async createClient(req, res) {
         req.body.role = 'client'
+      
         try {
             const password = await bcrypt.hash(req.body.password, 10)
             const bodyWithPasswordHashed = { ...req.body, password }
@@ -57,10 +59,10 @@ const ClientController = {
                     ]
                 }
             })
-            res.send({ message: 'Logged out successfully' })
+            res.send({ message: 'Hasta pronto!' })
         } catch (error) {
             console.error(error)
-            res.status(500).send({ message: 'There was a problem while logging out' })
+            res.status(500).send({ message: 'Ha habido un problema...' })
         }
     },
 }

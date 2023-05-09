@@ -3,14 +3,17 @@ const { Product, Category } = require('../models/index')
 const ProductController = {
     async createProduct(req, res) {
         try {
-            const { name, price ,CategoryId } = req.body;
-            await Product.create({ name, price, CategoryId });
-            res.status(201).send({ message: 'Product created' });
+          const { name, price ,CategoryId } = req.body;
+          if (!name || !price || !CategoryId) {
+            return res.status(400).send({ message: 'Missing required fields' });//se verifica que name, price y CategoryId estén presentes en req.body. Si alguno de ellos falta, se devuelve un mensaje de error con un código de estado 400 (Bad Request)
+          }
+          await Product.create({ name, price, CategoryId });
+          res.status(201).send({ message: 'Product created' });
         } catch (error) {
-            console.error(error);
-            res.status(500).send(error);
+          console.error(error);
+          res.status(500).send(error);
         }
-    },
+      },
     async getAll(req, res) {
         try {
             const products = await Product.findAll({
